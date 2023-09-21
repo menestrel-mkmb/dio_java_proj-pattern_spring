@@ -2,6 +2,7 @@ package edu.project.spring.patterns;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /*
 *
@@ -9,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 * a partir do Spring Boot Framework
 *
 * */
+@EnableFeignClients
 @SpringBootApplication
 public class Application {
 
