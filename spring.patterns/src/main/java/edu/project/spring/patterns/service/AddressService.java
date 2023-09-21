@@ -2,7 +2,6 @@ package edu.project.spring.patterns.service;
 
 import edu.project.spring.patterns.model.Address;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -26,8 +25,8 @@ import org.springframework.web.bind.annotation.PathVariable;
  * que devem ser mantidas iguais, para essas usamos interface.
  *
  * */
-@FeignClient(name = "viacep", url = "viacep.com.br/ws")
+@FeignClient(name = "viacep", url = "https://viacep.com.br/ws")
 public interface AddressService {
     @GetMapping("/{cep}/json/")
-    public Address getAddress(@PathVariable("cep") String cep);
+    Address getAddress(@PathVariable("cep") String cep);
 }

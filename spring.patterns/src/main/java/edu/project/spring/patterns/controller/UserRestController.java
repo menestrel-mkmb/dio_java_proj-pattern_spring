@@ -3,6 +3,7 @@ package edu.project.spring.patterns.controller;
 import edu.project.spring.patterns.model.User;
 import edu.project.spring.patterns.service.AddressService;
 import edu.project.spring.patterns.service.UserService;
+import edu.project.spring.patterns.service.UserServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -32,11 +33,9 @@ import org.springframework.web.bind.annotation.*;
 * */
 @RestController
 @RequestMapping("users")
-public class UserController {
+public class UserRestController {
     @Autowired
-    private UserService userService;
-    @Autowired
-    private AddressService addressService;
+    private UserServiceInterface userService;
 
     @GetMapping
     public ResponseEntity<Iterable<User>> findAllUsers() {
