@@ -6,23 +6,11 @@ import javax.persistence.*;
 @Table(name = "tab_user")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String name;
     @ManyToOne
-    private String endereco;
+    private Address address;
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
 }
