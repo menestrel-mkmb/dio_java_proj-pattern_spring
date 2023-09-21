@@ -38,6 +38,31 @@ public class UserController {
     @Autowired
     private AddressService addressService;
 
+    @GetMapping
+    public ResponseEntity<Iterable<User>> findAllUsers() {
+        return ResponseEntity.ok(userService.findAllUsers());
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<User> findUserbyId(@PathVariable Long id) {
+        return ResponseEntity.ok(userService.findUserById(id));
+    }
 
+    @PostMapping
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        userService.createUser(user);
+        return ResponseEntity.ok(user);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
+        userService.updateUser(id, user);
+        return ResponseEntity.ok(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id){
+        userService.deleteUser(id);
+        return ResponseEntity.ok().build();
+    }
 
 }
